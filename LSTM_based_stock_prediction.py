@@ -16,7 +16,7 @@ os.makedirs('outputs/csv', exist_ok=True)
 # Load the dataset
 # Replace 'AAPL' with the desired stock ticker symbol
 stock_symbol = 'AAPL'
-data = yf.download(stock_symbol, start='2010-01-01', end='2023-01-01')
+data = yf.download(stock_symbol, start='2010-01-01', end='2024-10-31')
 
 # Prepare the data
 # Using Close price for prediction
@@ -45,7 +45,7 @@ def create_dataset(dataset, time_step=1):
 # Set the time step
 # The time step determines how many previous time units are used to predict the next value.
 # Increasing this value allows the model to capture more long-term dependencies but can increase complexity and risk overfitting.
-time_step = 60
+time_step = 120
 
 # Prepare the training and testing datasets
 X_train, y_train = create_dataset(train_data, time_step)
